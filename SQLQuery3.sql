@@ -49,8 +49,26 @@ CREATE TABLE exame (
 );
 
 ALTER TABLE pedido_exame ADD CONSTRAINT FK_pedido_exame_2
-FOREIGN KEY (fk_consulta_numero_consulta)
-REFERENCES consulta (numero_consulta)
-ON DELETE CASCADE;
+	FOREIGN KEY (fk_consulta_numero_consulta)
+	REFERENCES consulta (numero_consulta)
+	ON DELETE CASCADE;
 
+ALTER TABLE pedido_exame ADD CONSTRAINT FK_pedido_exame_3
+	FOREIGN KEY (fk_exame_codigo)
+	REFERENCES exame (codigo)
+--	ON DELETE RESTRICT;
+
+ALTER TABLE consulta ADD CONSTRAINT FK_consulta_2
+	FOREIGN KEY (fk_paciente_cpf)
+	REFERENCES paciente (cpf)
+	ON DELETE CASCADE;
+
+ALTER TABLE consulta ADD CONSTRAINT FK_consulta_3
+	FOREIGN KEY (fk_medico_crm)
+	REFERENCES medico (crm)
+    ON DELETE CASCADE;
+
+
+-- inclusão e seleção de dados --------------------
+select * from paciente;
 
