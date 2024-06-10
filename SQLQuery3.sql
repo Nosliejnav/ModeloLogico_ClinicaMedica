@@ -1,4 +1,4 @@
--- Banci de Dados Clínica Médica - Modelo ...
+-- Banco de Dados ClÃ­nica MÃ©dica - Modelo ...
 
 -- drop database clinica_medica;
 
@@ -47,4 +47,10 @@ CREATE TABLE exame (
 	especificacao varchar(20),
 	preco money
 );
+
+ALTER TABLE pedido_exame ADD CONSTRAINT FK_pedido_exame_2
+FOREIGN KEY (fk_consulta_numero_consulta)
+REFERENCES consulta (numero_consulta)
+ON DELETE CASCADE;
+
 
